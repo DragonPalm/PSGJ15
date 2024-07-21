@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnp152hrq638g"]
+
+[ext_resource type="Texture2D" uid="uid://d1s00hkc3v01i" path="res://Graphics/Battle_map_Mockup_BG_2000x.png" id="1_aqkal"]
+[ext_resource type="PackedScene" uid="uid://cigoyybavb15" path="res://placement_circles.tscn" id="2_oq13a"]
+[ext_resource type="PackedScene" uid="uid://c08ncn5klfs7d" path="res://minion_button.tscn" id="3_frxq2"]
+
+[node name="Level" type="Node2D"]
+
+[node name="BattleMapMockupBg2000x" type="Sprite2D" parent="."]
+position = Vector2(958.5, 536.5)
+scale = Vector2(0.9755, 0.5565)
+texture = ExtResource("1_aqkal")
+
+[node name="placement_circles" parent="." instance=ExtResource("2_oq13a")]
+position = Vector2(231, 642)
+scale = Vector2(0.1875, 0.0695801)
+
+[node name="placement_circles2" parent="." instance=ExtResource("2_oq13a")]
+position = Vector2(224, 780)
+scale = Vector2(0.1875, 0.0695801)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 100)
+offset_left = 7.0
+offset_top = 975.0
+offset_right = 47.0
+offset_bottom = 1015.0
+
+[node name="Minion Button" parent="HBoxContainer" instance=ExtResource("3_frxq2")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+id = 1
+
+[node name="Minion Button2" parent="HBoxContainer" instance=ExtResource("3_frxq2")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+id = 2

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cigoyybavb15"]
+
+[ext_resource type="Texture2D" uid="uid://c7olkvtffjwdq" path="res://Graphics/Red_circle_frame_transparent.svg.png" id="1_2t4mi"]
+[ext_resource type="Script" path="res://placement_circles.gd" id="2_76ck3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oisbi"]
+
+[node name="placement_circles" type="Sprite2D"]
+position = Vector2(0, 1.00003)
+scale = Vector2(1, 0.371094)
+texture = ExtResource("1_2t4mi")
+script = ExtResource("2_76ck3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(45.855, 45.855)
+shape = SubResource("CircleShape2D_oisbi")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
