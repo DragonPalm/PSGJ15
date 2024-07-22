@@ -9,7 +9,7 @@
 [node name="Level" type="Node2D"]
 
 [node name="BattleMapMockupBg2000x" type="Sprite2D" parent="."]
-position = Vector2(963, 543)
+position = Vector2(958.5, 536.5)
 scale = Vector2(0.9755, 0.5565)
 texture = ExtResource("1_aqkal")
 
@@ -84,7 +84,7 @@ layout_mode = 2
 type = 6
 
 [node name="base_enemy" parent="." instance=ExtResource("4_dc611")]
-position = Vector2(1676, 829)
+position = Vector2(1651, 774)
 
 [node name="Begin Button" parent="." instance=ExtResource("5_nmxo0")]
 offset_left = 876.0

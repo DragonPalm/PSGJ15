@@ -19,6 +19,7 @@ config/icon="res://Graphics/icon.svg"
 
 DropManager="*res://drop_manager.gd"
 Minions="*res://minions.gd"
+CombatManager="*res://combat_manager.gd"
 
 [display]
 

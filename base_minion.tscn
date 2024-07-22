@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://db0memqif24pw"]
+[gd_scene load_steps=4 format=3 uid="uid://db0memqif24pw"]
 
 [ext_resource type="Script" path="res://minion_scene.gd" id="1_3xn57"]
 [ext_resource type="Texture2D" uid="uid://bf0cog2m8t5d0" path="res://Graphics/MinionSprites/MBaseNUSprite.png" id="2_fmtr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfqtp"]
 
 [node name="minion" type="Node2D"]
 script = ExtResource("1_3xn57")
 
 [node name="minion_sprite" type="Sprite2D" parent="."]
-position = Vector2(-3, 2)
 texture = ExtResource("2_fmtr2")
+offset = Vector2(0, -127)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -136)
+scale = Vector2(15, 15)
+shape = SubResource("RectangleShape2D_qfqtp")

@@ -1,10 +1,50 @@
 extends Node
 
+enum MinionType {
+	NULL, SHADOW, FLESH, BONE, BILE, MIND, BLOOD
+}
+
 var minion_list:Dictionary = {
-	1: {"name": "Shadow", "sprite_file": "res://Graphics/MinionSprites/MBaseNUSprite.png"},
-	2: {"name": "Flesh", "sprite_file": "res://Graphics/MinionSprites/MFleshSprite.png"},
-	3: {"name": "Bone", "sprite_file": "res://Graphics/MinionSprites/MBoneSprite.png"},
-	4: {"name": "Bile", "sprite_file": "res://Graphics/MinionSprites/MBileSprite.png"},
-	5: {"name": "Mind", "sprite_file": "res://Graphics/MinionSprites/MMindSprite.png"},
-	6: {"name": "Blood", "sprite_file": "res://Graphics/MinionSprites/MBloodSprite.png"}
+	1: {"name": "Shadow",
+		"sprite_file": "res://Graphics/MinionSprites/MBaseNUSprite.png",
+		"health": 50,
+		"damage": 5,
+		"speed": 60,
+		"harvest": 5
+		},
+	2: {"name": "Flesh",
+		"sprite_file": "res://Graphics/MinionSprites/MFleshSprite.png",
+		"health": 180,
+		"damage": 10,
+		"speed": 50,
+		"harvest": 5
+		},
+	3: {"name": "Bone",
+		"sprite_file": "res://Graphics/MinionSprites/MBoneSprite.png",
+		"health": 100,
+		"damage": 35,
+		"speed": 120,
+		"harvest": 20
+		},
+	4: {"name": "Bile",
+		"sprite_file": "res://Graphics/MinionSprites/MBileSprite.png",
+		"health": 70,
+		"damage": 40,
+		"speed": 80,
+		"harvest": 10
+		},
+	5: {"name": "Mind",
+		"sprite_file": "res://Graphics/MinionSprites/MMindSprite.png",
+		"health": 50,
+		"damage": 5,
+		"speed": 80,
+		"harvest": 15
+		},
+	6: {"name": "Blood",
+		"sprite_file": "res://Graphics/MinionSprites/MBloodSprite.png",
+		"health": 60,
+		"damage": 20,
+		"speed": 100,
+		"harvest": 25
+		}
 }

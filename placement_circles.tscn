@@ -6,8 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_oisbi"]
 
 [node name="placement_circles" type="Sprite2D"]
-position = Vector2(0, 1.00003)
-scale = Vector2(1, 0.371094)
+scale = Vector2(0.11084, 0.041132)
 texture = ExtResource("1_2t4mi")
 script = ExtResource("2_76ck3")
 

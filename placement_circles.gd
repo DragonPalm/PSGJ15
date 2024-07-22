@@ -1,9 +1,12 @@
 extends Sprite2D
 
+var has_spawn = false
+var minion = null
+var circle_instance = self
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,6 +15,18 @@ func _process(delta):
 
 
 func _on_area_2d_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false:
-		DropManager.spawn_minion(position)
-		print(event)
+	if DropManager.can_spawn:
+		if event is InputEventMouseButton and event.button_index == 1 and event.pressed == false:
+			if has_spawn == false:
+				minion = DropManager.spawn_minion(position)
+				CombatManager.minions.append(circle_instance)
+				has_spawn = true
+			if has_spawn == true:
+				CombatManager.minions.erase(circle_instance)
+				minion.queue_free()
+				minion = DropManager.spawn_minion(position)
+				CombatManager.minions.append(circle_instance)
+				has_spawn = true
+	else:
+		pass
+			
