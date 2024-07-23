@@ -1,44 +1,205 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnp152hrq638g"]
+[gd_scene load_steps=7 format=3 uid="uid://bnp152hrq638g"]
 
 [ext_resource type="Texture2D" uid="uid://d1s00hkc3v01i" path="res://Graphics/Battle_map_Mockup_BG_2000x.png" id="1_aqkal"]
-[ext_resource type="PackedScene" uid="uid://cigoyybavb15" path="res://placement_circles.tscn" id="2_oq13a"]
+[ext_resource type="Script" path="res://minion_grid.gd" id="3_a6bj6"]
+[ext_resource type="Script" path="res://enemy_grid.gd" id="3_cafv5"]
 [ext_resource type="PackedScene" uid="uid://c08ncn5klfs7d" path="res://minion_button.tscn" id="3_frxq2"]
-[ext_resource type="PackedScene" uid="uid://og0avdmffxey" path="res://base_enemy.tscn" id="4_dc611"]
 [ext_resource type="PackedScene" uid="uid://cc5n73jp8n3ei" path="res://begin_button.tscn" id="5_nmxo0"]
 
-[node name="Level" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw00v"]
+
+[node name="Level" type="Node2D" groups=["BattleMap"]]
 
 [node name="BattleMapMockupBg2000x" type="Sprite2D" parent="."]
-position = Vector2(963, 543)
+position = Vector2(961, 543)
 scale = Vector2(0.9755, 0.5565)
 texture = ExtResource("1_aqkal")
 
-[node name="placement_circles" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(80, 878)
+[node name="minion_grid" type="Node2D" parent="."]
+script = ExtResource("3_a6bj6")
 
-[node name="placement_circles2" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(80, 791)
+[node name="possible_placements" type="Node2D" parent="minion_grid"]
 
-[node name="placement_circles3" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(80, 705)
+[node name="grid_spots" type="Area2D" parent="minion_grid/possible_placements"]
 
-[node name="placement_circles4" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(82, 614)
+[node name="S1" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(522, 673)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
 
-[node name="placement_circles5" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(237, 663)
+[node name="S2" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(522, 733)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
 
-[node name="placement_circles6" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(236, 753)
+[node name="S3" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(522, 793)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
 
-[node name="placement_circles7" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(233, 846)
+[node name="S4" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(412, 643)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
 
-[node name="placement_circles8" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(386, 801)
+[node name="S5" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(412, 703)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
 
-[node name="placement_circles9" parent="." instance=ExtResource("2_oq13a")]
-position = Vector2(384, 710)
+[node name="S6" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(412, 763)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S7" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(412, 823)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S8" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(302, 673)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S9" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(302, 733)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S10" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(302, 793)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S11" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(192, 643)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S12" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(192, 703)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S13" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(192, 763)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S14" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(192, 823)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S15" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(82, 673)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S16" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(82, 733)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S17" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
+position = Vector2(82, 793)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="enemy_grid" type="Node2D" parent="."]
+position = Vector2(1915, 0)
+scale = Vector2(-1, 1)
+script = ExtResource("3_cafv5")
+
+[node name="possible_placements" type="Node2D" parent="enemy_grid"]
+
+[node name="grid_spots" type="Area2D" parent="enemy_grid/possible_placements"]
+
+[node name="S1" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(522, 673)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S2" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(522, 733)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S3" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(522, 793)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S4" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(412, 643)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S5" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(412, 703)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S6" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(412, 763)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S7" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(412, 823)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S8" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(302, 673)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S9" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(302, 733)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S10" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(302, 793)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S11" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(192, 643)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S12" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(192, 703)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S13" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(192, 763)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S14" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(192, 823)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S15" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(82, 673)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S16" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(82, 733)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S17" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(82, 793)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -7.0
@@ -82,9 +243,6 @@ type = 5
 custom_minimum_size = Vector2(120, 100)
 layout_mode = 2
 type = 6
-
-[node name="base_enemy" parent="." instance=ExtResource("4_dc611")]
-position = Vector2(1676, 829)
 
 [node name="Begin Button" parent="." instance=ExtResource("5_nmxo0")]
 offset_left = 876.0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxht4y3wbclvp"]
+
+[ext_resource type="Script" path="res://music_manager.gd" id="1_i7xqt"]
+[ext_resource type="AudioStream" uid="uid://bpd4dlo8wrjwf" path="res://music/menu.mp3" id="2_8ml26"]
+[ext_resource type="AudioStream" uid="uid://bgc5lri8slmrh" path="res://music/battle.wav" id="3_bpucg"]
+
+[node name="MusicManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i7xqt")
+
+[node name="menu_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8ml26")
+
+[node name="battle_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bpucg")

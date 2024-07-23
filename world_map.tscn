@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://bepxbg7bsff7h"]
+
+[ext_resource type="Script" path="res://world_map.gd" id="1_0hsos"]
+[ext_resource type="Texture2D" uid="uid://bp21te23skp5u" path="res://Graphics/World_map_test_2000x.png" id="2_2q1w8"]
+
+[node name="world_map" type="Node2D" groups=["MainMenu"]]
+script = ExtResource("1_0hsos")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(961.351, 621)
+rotation = 1.5708
+scale = Vector2(0.732302, 0.95944)
+texture = ExtResource("2_2q1w8")
+
+[node name="crypt_button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 117.0
+offset_top = 697.0
+offset_right = 191.0
+offset_bottom = 728.0
+text = "Crypt"
+
+[node name="village_button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 477.0
+offset_top = 563.0
+offset_right = 577.0
+offset_bottom = 613.0
+text = "Village"
+
+[node name="city_button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 431.0
+offset_top = 952.0
+offset_right = 531.0
+offset_bottom = 1002.0
+text = "City"
+
+[node name="forest_button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 1110.0
+offset_top = 541.0
+offset_right = 1210.0
+offset_bottom = 591.0
+text = "Forest"
+
+[node name="cathedral_button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 967.0
+offset_top = 937.0
+offset_right = 1067.0
+offset_bottom = 987.0
+text = "Cathedral"
+
+[node name="castle_button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 50)
+offset_left = 1471.0
+offset_top = 717.0
+offset_right = 1571.0
+offset_bottom = 767.0
+text = "Castle"
+
+[connection signal="button_up" from="crypt_button" to="." method="_on_crypt_button_button_up"]
+[connection signal="button_up" from="village_button" to="." method="_on_village_button_button_up"]
+[connection signal="button_up" from="city_button" to="." method="_on_city_button_button_up"]
+[connection signal="button_up" from="forest_button" to="." method="_on_forest_button_button_up"]
+[connection signal="button_up" from="cathedral_button" to="." method="_on_cathedral_button_button_up"]
+[connection signal="button_up" from="castle_button" to="." method="_on_castle_button_button_up"]
