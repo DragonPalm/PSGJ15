@@ -1,7 +1,8 @@
 extends Node2D
 
 
-var placement_circle = preload("res://placement_circles.tscn")
+var enemy_scene = preload("res://base_enemy.tscn")
+var level_name = null
 var S1 = "possible_placements/grid_spots/S1"
 var S2 = "possible_placements/grid_spots/S2"
 var S3 = "possible_placements/grid_spots/S3"
@@ -20,10 +21,6 @@ var S15 = "possible_placements/grid_spots/S15"
 var S16 = "possible_placements/grid_spots/S16"
 var S17 = "possible_placements/grid_spots/S17"
 
-func _ready():
-	randomize()
-	set_spawn_grid()
-
 
 var grid_columns = {
 	"front": [S1, S2, S3],
@@ -33,28 +30,46 @@ var grid_columns = {
 	"back": [S15, S16, S17]
 }
 
-var grid_sets = {
-	"Basic1": [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10],
-	"Basic2": [S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
-	"LittleDiamond": [S2, S5, S6, S9],
-	"ForwardV": [S2, S5, S6, S8, S10],
-	"BackwardV": [S1, S3, S5, S6, S9],
-	"BigX": [S1, S3, S5, S6, S9, S12, S13, S15, S17],
-	"LittleX": [S5, S6, S9, S12, S13]
+var stage_zero_grid_sets = {
+	"LittleDiamond": [S9, S12, S13, S16],
+	"Bow": [S12, S13, S15, S17],
+	"ReverseBow": [S8, S10, S12, S13],
+	"Gap": [S8, S10, S11, S14],
+	"Line": [S11, S12, S13, S14]
 }
 
 
-func choose_random_grid_set():
-	var keys = grid_sets.keys()
-	var random_index = randi() % keys.size()
-	var random_key = keys[random_index]
-	return grid_sets[random_key]
+func _ready():
+	Global.level_name = "crypt" # for testing
+	get_grid_stage()
+	spawn_enemies()
 
 
-func set_spawn_grid():
-	var grid_set = choose_random_grid_set()
-	for path in grid_set:
-		var grid = get_node(path)
-		var instance = placement_circle.instantiate()
-		instance.position = grid.position
-		add_child(instance)
+func get_grid_stage():
+	level_name = Global.level_name
+
+
+func spawn_enemies():
+	if level_name == "crypt":
+		var grid_set = stage_zero_grid_sets["Line"]
+		position += Vector2(110, 0)
+		for path in grid_set:
+			var grid = get_node(path)
+			var instance = enemy_scene.instantiate()
+			instance.id = 7
+			instance.set_stats()
+			instance.position = grid.position
+			add_child(instance)
+			CombatManager.enemies.append(instance)
+
+
+func _grid_placeholders_for_copy_pasting():
+	var grid_sets = {
+		"Basic1": [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10],
+		"Basic2": [S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
+		"LittleDiamond": [S2, S5, S6, S9],
+		"ForwardV": [S2, S5, S6, S8, S10],
+		"BackwardV": [S1, S3, S5, S6, S9],
+		"BigX": [S1, S3, S5, S6, S9, S12, S13, S15, S17],
+		"LittleX": [S5, S6, S9, S12, S13]
+	}

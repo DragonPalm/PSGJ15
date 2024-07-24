@@ -1,31 +1,40 @@
 extends Node
 
+var level = preload("res://level.tscn")
+var minion_grid = null
+var enemy_grid = null
 var minions = []
 var enemies = []
+var placement_circles = []
+var colliding = false
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	randomize()
+	set_process(false)
 
-func choose_target(instance):
-	if instance in minions:
-		var rand_index = randi() % enemies.size()
-		var target = enemies[rand_index]
-		return target
-	elif instance in enemies:
-		var rand_index = randi() % minions.size()
-		var target = minions[rand_index]
-		return target
-	return null
-		
+
 func start_fight():
-	for instance in minions:
-		var target = choose_target(instance)
-		instance.minion.target = target
-	for instance in enemies:
-		var target = choose_target(instance)
-		instance.target = target.minion
+	for circle in placement_circles:
+		circle.queue_free()
+	for enemy in enemies:
+		enemy.colliding.connect(stop_moving)
+	set_process(true)
+
+
+func set_nodes():
+	minion_grid = get_tree().get_current_scene().get_node("minion_grid")
+	enemy_grid = get_tree().get_current_scene().get_node("enemy_grid")
+
+
+func move_grids():
+	if not colliding:
+		minion_grid.position.x += 5
+		enemy_grid.position.x -= 5
+
+
+func stop_moving():
+	colliding = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	move_grids()

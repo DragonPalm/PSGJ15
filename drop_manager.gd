@@ -10,8 +10,10 @@ func spawn_minion(pos):
 		instance.position = pos
 		instance.scale = Vector2(0.3, 0.3)
 		instance.id = minion_id
-		instance.uid = get_instance_id()
-		get_tree().get_current_scene().add_child(instance)
+		var parent = get_tree().get_current_scene().get_node("minion_grid")
+		var node = get_tree().get_current_scene().get_node("minion_grid/minions")
+		node.add_child(instance)
+		parent.sort_minions()
 		return instance
 	else:
 		pass

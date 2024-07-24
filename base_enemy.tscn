@@ -8,14 +8,15 @@
 [node name="base_enemy" type="Node2D"]
 script = ExtResource("1_68pme")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="enemy_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_h0ici")
 offset = Vector2(0, -127)
-flip_h = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["EnemyGroup"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -130)
-scale = Vector2(15, 15)
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_hm4st")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

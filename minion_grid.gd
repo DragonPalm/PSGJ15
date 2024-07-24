@@ -20,10 +20,6 @@ var S15 = "possible_placements/grid_spots/S15"
 var S16 = "possible_placements/grid_spots/S16"
 var S17 = "possible_placements/grid_spots/S17"
 
-func _ready():
-	randomize()
-	set_spawn_grid()
-
 
 var grid_columns = {
 	"front": [S1, S2, S3],
@@ -33,15 +29,35 @@ var grid_columns = {
 	"back": [S15, S16, S17]
 }
 
-var grid_sets = {
-	"Basic1": [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10],
-	"Basic2": [S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
-	"LittleDiamond": [S2, S5, S6, S9],
-	"ForwardV": [S2, S5, S6, S8, S10],
-	"BackwardV": [S1, S3, S5, S6, S9],
-	"BigX": [S1, S3, S5, S6, S9, S12, S13, S15, S17],
-	"LittleX": [S5, S6, S9, S12, S13]
-}
+var grid_sets = {}
+
+
+func get_grid_stage():
+	var grid_stage = Global.map_stage
+	if grid_stage == 0:
+		grid_sets = {
+			"LittleDiamond": [S9, S12, S13, S16],
+			"Bow": [S12, S13, S15, S17],
+			"ReverseBow": [S8, S10, S12, S13],
+			"Gap": [S8, S10, S11, S14],
+		}
+
+func _grid_placeholders_for_copy_pasting():
+	var grid_sets = {
+		"Basic1": [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10],
+		"Basic2": [S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
+		"LittleDiamond": [S2, S5, S6, S9],
+		"ForwardV": [S2, S5, S6, S8, S10],
+		"BackwardV": [S1, S3, S5, S6, S9],
+		"BigX": [S1, S3, S5, S6, S9, S12, S13, S15, S17],
+		"LittleX": [S5, S6, S9, S12, S13]
+	}
+
+
+func _ready():
+	randomize()
+	get_grid_stage()
+	set_spawn_grid()
 
 
 func choose_random_grid_set():
@@ -51,10 +67,46 @@ func choose_random_grid_set():
 	return grid_sets[random_key]
 
 
+func check_grid_columns(grid_set):
+	var back = grid_columns["back"]
+	var mid_back = grid_columns["middle_back"]
+	var back_found = false
+	var midback_found = false
+	
+	for i in back:
+		if i in grid_set:
+			back_found = true
+			break
+	
+	for i in mid_back:
+		if i in grid_set:
+			midback_found = true
+			break
+	
+	return {"back_exists": back_found, "midback_exists": midback_found}
+
+
 func set_spawn_grid():
 	var grid_set = choose_random_grid_set()
+	var check_columns = check_grid_columns(grid_set)
+	if not check_columns["back_exists"] and not check_columns["midback_exists"]:
+		position -= Vector2(220, 0)
+	elif not check_columns["back_exists"]:
+		position -= Vector2(110, 0)
 	for path in grid_set:
 		var grid = get_node(path)
 		var instance = placement_circle.instantiate()
 		instance.position = grid.position
-		add_child(instance)
+		$circles.add_child(instance)
+		CombatManager.placement_circles.append(instance)
+
+
+func sort_minions():
+	var children = $minions.get_children()
+	children.sort_custom(sort_by_y)
+	for child in children:
+		child.get_parent().remove_child(child)
+		$minions.add_child(child)
+
+func sort_by_y(node_a: Node, node_b: Node) -> bool:
+	return node_a.position.y < node_b.position.y

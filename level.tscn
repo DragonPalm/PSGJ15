@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnp152hrq638g"]
+[gd_scene load_steps=8 format=3 uid="uid://bnp152hrq638g"]
 
 [ext_resource type="Texture2D" uid="uid://d1s00hkc3v01i" path="res://Graphics/Battle_map_Mockup_BG_2000x.png" id="1_aqkal"]
+[ext_resource type="Script" path="res://level.gd" id="1_qin68"]
 [ext_resource type="Script" path="res://minion_grid.gd" id="3_a6bj6"]
 [ext_resource type="Script" path="res://enemy_grid.gd" id="3_cafv5"]
 [ext_resource type="PackedScene" uid="uid://c08ncn5klfs7d" path="res://minion_button.tscn" id="3_frxq2"]
@@ -9,6 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw00v"]
 
 [node name="Level" type="Node2D" groups=["BattleMap"]]
+script = ExtResource("1_qin68")
 
 [node name="BattleMapMockupBg2000x" type="Sprite2D" parent="."]
 position = Vector2(961, 543)
@@ -23,89 +25,93 @@ script = ExtResource("3_a6bj6")
 [node name="grid_spots" type="Area2D" parent="minion_grid/possible_placements"]
 
 [node name="S1" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(522, 673)
+position = Vector2(520, 680)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S2" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(522, 733)
+position = Vector2(520, 740)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S3" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(522, 793)
+position = Vector2(520, 800)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S4" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(412, 643)
+position = Vector2(410, 650)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S5" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(412, 703)
+position = Vector2(410, 710)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S6" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(412, 763)
+position = Vector2(410, 770)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S7" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(412, 823)
+position = Vector2(410, 830)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S8" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(302, 673)
+position = Vector2(300, 680)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S9" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(302, 733)
+position = Vector2(300, 740)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S10" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(302, 793)
+position = Vector2(300, 800)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S11" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(192, 643)
+position = Vector2(190, 650)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S12" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(192, 703)
+position = Vector2(190, 710)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S13" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(192, 763)
+position = Vector2(190, 770)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S14" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(192, 823)
+position = Vector2(190, 830)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S15" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(82, 673)
+position = Vector2(80, 680)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S16" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(82, 733)
+position = Vector2(80, 740)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S17" type="CollisionShape2D" parent="minion_grid/possible_placements/grid_spots"]
-position = Vector2(82, 793)
+position = Vector2(80, 800)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
+
+[node name="circles" type="Node2D" parent="minion_grid"]
+
+[node name="minions" type="Node2D" parent="minion_grid"]
 
 [node name="enemy_grid" type="Node2D" parent="."]
 position = Vector2(1915, 0)
@@ -117,87 +123,87 @@ script = ExtResource("3_cafv5")
 [node name="grid_spots" type="Area2D" parent="enemy_grid/possible_placements"]
 
 [node name="S1" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(522, 673)
+position = Vector2(520, 680)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S2" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(522, 733)
+position = Vector2(520, 740)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S3" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(522, 793)
+position = Vector2(520, 800)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S4" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(412, 643)
+position = Vector2(410, 650)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S5" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(412, 703)
+position = Vector2(410, 710)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S6" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(412, 763)
+position = Vector2(410, 770)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S7" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(412, 823)
+position = Vector2(410, 830)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S8" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(302, 673)
+position = Vector2(300, 680)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S9" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(302, 733)
+position = Vector2(300, 740)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S10" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(302, 793)
+position = Vector2(300, 800)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S11" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(192, 643)
+position = Vector2(190, 650)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S12" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(192, 703)
+position = Vector2(190, 710)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S13" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(192, 763)
+position = Vector2(190, 770)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S14" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(192, 823)
+position = Vector2(190, 830)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S15" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(82, 673)
+position = Vector2(80, 680)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S16" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(82, 733)
+position = Vector2(80, 740)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
 [node name="S17" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(82, 793)
+position = Vector2(80, 800)
 scale = Vector2(4.681, 2.01)
 shape = SubResource("CircleShape2D_xw00v")
 
