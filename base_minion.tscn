@@ -1,9 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://db0memqif24pw"]
+[gd_scene load_steps=8 format=3 uid="uid://db0memqif24pw"]
 
 [ext_resource type="Script" path="res://minion_scene.gd" id="1_3xn57"]
 [ext_resource type="Texture2D" uid="uid://bf0cog2m8t5d0" path="res://Graphics/MinionSprites/MBaseNUSprite.png" id="2_fmtr2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfqtp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71rlo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb4vx"]
+bg_color = Color(1.44392e-06, 0.720491, 0.324366, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sau3"]
+bg_color = Color(0.273873, 0.273873, 0.273873, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2aii"]
+bg_color = Color(0.666569, 0.666569, 0.666569, 1)
 
 [node name="base_minion" type="Node2D"]
 script = ExtResource("1_3xn57")
@@ -16,7 +33,40 @@ offset = Vector2(0, -127)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -136)
-scale = Vector2(10, 10)
+scale = Vector2(10, 30)
 shape = SubResource("RectangleShape2D_qfqtp")
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 2
+offset_left = -121.0
+offset_top = -457.0
+offset_right = 119.0
+offset_bottom = -437.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxEmpty_71rlo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vb4vx")
+value = 60.0
+show_percentage = false
+
+[node name="DamageBar" type="ProgressBar" parent="HealthBar"]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_0sau3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i2aii")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="HealthBar"]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="HealthBar/Timer" to="." method="_on_timer_timeout"]

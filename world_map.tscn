@@ -61,6 +61,7 @@ offset_bottom = 767.0
 text = "Castle"
 
 [connection signal="button_up" from="crypt_button" to="." method="_on_crypt_button_button_up"]
+[connection signal="mouse_entered" from="crypt_button" to="." method="_on_crypt_button_mouse_entered"]
 [connection signal="button_up" from="village_button" to="." method="_on_village_button_button_up"]
 [connection signal="button_up" from="city_button" to="." method="_on_city_button_button_up"]
 [connection signal="button_up" from="forest_button" to="." method="_on_forest_button_button_up"]

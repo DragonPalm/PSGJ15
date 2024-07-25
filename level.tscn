@@ -17,6 +17,101 @@ position = Vector2(961, 543)
 scale = Vector2(0.9755, 0.5565)
 texture = ExtResource("1_aqkal")
 
+[node name="enemy_grid" type="Node2D" parent="."]
+position = Vector2(1915, 0)
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("3_cafv5")
+
+[node name="possible_placements" type="Node2D" parent="enemy_grid"]
+
+[node name="grid_spots" type="Area2D" parent="enemy_grid/possible_placements"]
+
+[node name="S1" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(520, 680)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S2" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(520, 740)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S3" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(520, 800)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S4" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(410, 650)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S5" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(410, 710)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S6" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(410, 770)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S7" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(410, 830)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S8" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(300, 680)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S9" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(300, 740)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S10" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(300, 800)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S11" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(190, 650)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S12" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(190, 710)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S13" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(190, 770)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S14" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(190, 830)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S15" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(80, 680)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S16" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(80, 740)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
+[node name="S17" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
+position = Vector2(80, 800)
+scale = Vector2(4.681, 2.01)
+shape = SubResource("CircleShape2D_xw00v")
+
 [node name="minion_grid" type="Node2D" parent="."]
 script = ExtResource("3_a6bj6")
 
@@ -113,99 +208,7 @@ shape = SubResource("CircleShape2D_xw00v")
 
 [node name="minions" type="Node2D" parent="minion_grid"]
 
-[node name="enemy_grid" type="Node2D" parent="."]
-position = Vector2(1915, 0)
-scale = Vector2(-1, 1)
-script = ExtResource("3_cafv5")
-
-[node name="possible_placements" type="Node2D" parent="enemy_grid"]
-
-[node name="grid_spots" type="Area2D" parent="enemy_grid/possible_placements"]
-
-[node name="S1" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(520, 680)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S2" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(520, 740)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S3" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(520, 800)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S4" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(410, 650)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S5" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(410, 710)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S6" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(410, 770)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S7" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(410, 830)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S8" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(300, 680)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S9" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(300, 740)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S10" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(300, 800)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S11" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(190, 650)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S12" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(190, 710)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S13" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(190, 770)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S14" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(190, 830)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S15" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(80, 680)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S16" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(80, 740)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
-
-[node name="S17" type="CollisionShape2D" parent="enemy_grid/possible_placements/grid_spots"]
-position = Vector2(80, 800)
-scale = Vector2(4.681, 2.01)
-shape = SubResource("CircleShape2D_xw00v")
+[node name="combatants" type="Node2D" parent="."]
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -7.0
@@ -255,3 +258,131 @@ offset_left = 876.0
 offset_top = 999.0
 offset_right = 876.0
 offset_bottom = 999.0
+
+[node name="game_over" type="Control" parent="."]
+visible = false
+z_index = 3
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="you_win" type="Control" parent="game_over"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="game_over/you_win"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="game_over/you_win/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="game_over/you_win/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="game_over/you_win/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "You win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="separator" type="Control" parent="game_over/you_win/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="game_over/you_win/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="win_continue" type="Button" parent="game_over/you_win/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Continue"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="game_over/you_win/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="win_menu" type="Button" parent="game_over/you_win/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
+[node name="you_lose" type="Control" parent="game_over"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="game_over/you_lose"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="game_over/you_lose/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="game_over/you_lose/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="game_over/you_lose/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "You Lose!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="separator" type="Control" parent="game_over/you_lose/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="game_over/you_lose/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="lose_continue" type="Button" parent="game_over/you_lose/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Continue"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="game_over/you_lose/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="lose_menu" type="Button" parent="game_over/you_lose/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
+
+[connection signal="button_up" from="game_over/you_win/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/win_continue" to="." method="_on_win_continue_button_up"]
+[connection signal="button_up" from="game_over/you_win/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/win_menu" to="." method="_on_win_menu_button_up"]
+[connection signal="button_up" from="game_over/you_lose/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/lose_continue" to="." method="_on_lose_continue_button_up"]
+[connection signal="button_up" from="game_over/you_lose/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/lose_menu" to="." method="_on_lose_menu_button_up"]

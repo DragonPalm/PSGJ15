@@ -4,9 +4,9 @@ var scene = null
 var current_music = null
 
 
-#func _ready():
-	#var scene_tree = get_tree()
-	#scene_tree.connect("tree_changed", Callable(self, "_on_tree_changed"))
+func _ready():
+	var scene_tree = get_tree()
+	scene_tree.connect("tree_changed", Callable(self, "_on_tree_changed"))
 
 
 func _on_tree_changed():

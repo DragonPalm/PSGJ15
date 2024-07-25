@@ -2,6 +2,7 @@ extends Node
 
 var map_stage = 0
 var level_name = null
+var unlocked_maps = ["crypt"]
 
 func tasks_to_complete():
 	# Make logic to change the level scene based on which level the player is going to

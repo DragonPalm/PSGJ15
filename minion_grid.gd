@@ -42,16 +42,16 @@ func get_grid_stage():
 			"Gap": [S8, S10, S11, S14],
 		}
 
-func _grid_placeholders_for_copy_pasting():
-	var grid_sets = {
-		"Basic1": [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10],
-		"Basic2": [S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
-		"LittleDiamond": [S2, S5, S6, S9],
-		"ForwardV": [S2, S5, S6, S8, S10],
-		"BackwardV": [S1, S3, S5, S6, S9],
-		"BigX": [S1, S3, S5, S6, S9, S12, S13, S15, S17],
-		"LittleX": [S5, S6, S9, S12, S13]
-	}
+#func _grid_placeholders_for_copy_pasting():
+	#var grid_sets = {
+		#"Basic1": [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10],
+		#"Basic2": [S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14],
+		#"LittleDiamond": [S2, S5, S6, S9],
+		#"ForwardV": [S2, S5, S6, S8, S10],
+		#"BackwardV": [S1, S3, S5, S6, S9],
+		#"BigX": [S1, S3, S5, S6, S9, S12, S13, S15, S17],
+		#"LittleX": [S5, S6, S9, S12, S13]
+	#}
 
 
 func _ready():
@@ -86,6 +86,14 @@ func check_grid_columns(grid_set):
 	return {"back_exists": back_found, "midback_exists": midback_found}
 
 
+func extract_grid_number(path: String) -> int:
+	var spot_string = path.substr(path.length() - 2, 2)
+	var number_string = ""
+	for chara in spot_string:
+		if chara >= '0' and chara <= '9':
+			number_string += chara
+	return int(number_string)
+
 func set_spawn_grid():
 	var grid_set = choose_random_grid_set()
 	var check_columns = check_grid_columns(grid_set)
@@ -97,6 +105,7 @@ func set_spawn_grid():
 		var grid = get_node(path)
 		var instance = placement_circle.instantiate()
 		instance.position = grid.position
+		instance.grid_spot = extract_grid_number(path)
 		$circles.add_child(instance)
 		CombatManager.placement_circles.append(instance)
 
